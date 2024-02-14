@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang= "eng">
     <head>
-        <title> Cat Website</title>
+        <meta charset="utf-8">
+        <title> CatPhotoApp</title>
     </head>
     
     <body>
@@ -47,14 +48,21 @@
             <form action="https://freecatphotoapp.com/submit-cat-photo">
                 <fieldset><legend>Is your cat an indoor or an outdoor cat?</legend>
                     <label><input value='indoor' id="indoor" name="indoor-outdoor" 
-                        type='radio'> Indoor</label>
+                        type='radio' checked> Indoor</label>
                     <label><input value='outdoor' id="outdoor" name="indoor-outdoor"
                         type="radio"> Outdoor</label>
                 </fieldset>
                 <fieldset>
                     <legend>What's your cat's personality?</legend>
-                    <input name="personality" id='loving' type="checkbox"> <label
+                    <input name="personality"
+                    value="loving" id='loving' type="checkbox" checked> <label
                     for="loving">Loving</label>
+                    <input name="personality"
+                    value="lazy" id="lazy" type="checkbox"><label
+                     for="lazy">Lazy</label>
+                     <input name="personality" 
+                     value="energetic" id="energetic" type="checkbox"><label
+                     for="energetic">Energetic</label>
                 </fieldset>
                 <input type="text name='catphotourl"
                     placeholder="cat photo url"
@@ -65,5 +73,9 @@
         </section>
 
     </main>
+    <footer>
+        <p>No Copyright - <a
+             href="https://www.freecodecamp.org">freeCodeCamp.org</a> </p>
+    </footer>
     </body>
 </html>
