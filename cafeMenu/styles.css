@@ -5,6 +5,19 @@ h1,h2,p
 body{
     background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
    /* background-color: burlywood; */
+   font-family: sans-serif;
+}
+h1,h2{
+    font-family: Impact;
+}
+h1 {
+    font-size: 40px;
+}
+h2{
+    font-size: 30px;
+}
+.established{
+    font-style: italic;
 }
 .menu{
     padding: 20px;
@@ -12,15 +25,16 @@ body{
     background-color: burlywood;
     margin-left: auto;
     margin-right: auto;
+    max-width: 500px;
 }
 .item p{
     display: inline-block;
 }
 .flavor,.dessert{
     text-align: left;
-    width: 50%;
+    width: 75%;
 }
 .price{
     text-align: right;
-    width: 50%;
+    width: 25%;
 }
