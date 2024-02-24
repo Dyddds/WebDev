@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./styles.css" />
+        <meta charset="utf-8"/>
+        <title>Survey Form</title>
+
+    </head>
+    
+    <body>
+
+        <h1 id="title">Survey Form</h1>
+        <p id="description">Please take the time to fill the following survey</p>
+        <form action="">
+            <label for="name" >Name <input 
+                required id="name" type="text" placeholder="Enter your name"/></label>
+            <label for="email" >Email <input 
+                required id="email" type="email" placeholder="Enter your email"/></label>
+            <label for="age" >Age (optional) <input 
+                id="age" type="number" placeholder="Age"/></label>
+            <label for="role" >Which option best describes your current role? <select 
+                id="role">
+                <option value="">select current role</option>
+                <option value="1">Student</option>
+                <option value="2">Full Time Job</option>
+                <option value="3">Full Time Learner</option>
+                <option value="4">Prefer not to say</option>
+                <option value="5">Other</option>
+                </select>
+            </label>
+            <label id='recommendation' for="recommending" >Would you recommend freeCodeCamp to a friend?
+                <input id='recommending' name="recommending" type="radio" checked/>Definitely
+                <input id="recommending" name='recommending' type="radio"/>Maybe
+                <input id="recommending" name="recommending" type="radio"/>Not sure
+            </label>
+            <label for="favorite" >What is your favorite feature of freeCodeCamp?<select 
+                id="favorite">
+                <option value="">select an option</option>
+                <option value="1">Challenges</option>
+                <option value="2">Project</option>
+                <option value="3">Community</option>
+                <option value="4">Open Source</option>
+                </select>
+            </label>
+            <legend>What would you like to see improved?</legend>
+                <label for="improvising"><input 
+                id='improvising' type="checkbox"/>Front-end projects</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Back-end projects</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Data Visualization</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Challenges</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Open Source Community</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Gitter help room</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Videos</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>City Meetups</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Wiki</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Forum</label>
+                <label for="improvising"><input 
+                    id='improvising' type="checkbox"/>Additional Courses</label>
+            
+            
+            </form>
+
+    </body>
+
+</html>

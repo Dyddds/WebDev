@@ -1,0 +1,14 @@
+label,input,select{
+    display: block;
+}
+label{
+    padding-bottom: 1rem;
+}
+
+form,body{
+    margin: 0 auto;
+    max-width: 500px;
+    min-width: 200px;
+    width: 60vw;
+    padding-bottom: 2em;
+}
