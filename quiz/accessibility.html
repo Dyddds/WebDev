@@ -12,9 +12,9 @@
             <img id="logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg">
             <h1>HTML/CSS Quiz</h1>
             <nav><ul>
-                <li><a href="#student-info">INFO</a></li>
-                <li><a href="#html-questions">HTML</a></li>
-                <li><a href="#css-questions">CSS</a></li>
+                <li><a accesskey="s" href="#student-info">INFO</a></li>
+                <li><a accesskey="h" href="#html-questions">HTML</a></li>
+                <li><a accesskey="c" href="#css-questions">CSS</a></li>
             </ul></nav>
         </header>
         <main>
@@ -49,7 +49,7 @@
                         <fieldset class="question" name="html-question-two">
                             <legend>A label element nesting an input element is required to have a
                                 for attribute with the same value as the input's id</legend>
-                            <ul>
+                            <ul class="answers-list">
                                 <li><label
                                     for="'q2-a1"><input type='radio' name="q2" id="q2-a1" value="True">True</label></li>
                                 <li><label
@@ -81,7 +81,7 @@
                         </div>
                       </div>
                 </section>
-                <input type="submit" value="send"/>
+                <button type="submit" value="send"/>Submit</button>
             </form>
         </main>
         <footer><address>
