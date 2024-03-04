@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+/*
+.gallery{
+    width: 50%;
+    border: 5px red solid;
+}
+img{
+    width: 100%;
+    padding: 5px;
+    border: 5px solid blue;
+}
+*/
+.gallery img{
+    width: 100%;
+    max-width: 350px;
+    height: 300px;
+    /*maintain aspect ratio while cropping to fit*/
+    object-fit: cover;
+    border-radius: 10px;
+}
+.header{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 32px;
+    background-color: #0a0a23;
+    color: #fff;
+    border-bottom: 4px solid #fdb347;
+
+}
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f5f6f7;
+}
+.gallery{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*row: cross axis is vertical , align position axis*/
+    align-items: center;
+    padding: 20px 10px;
+    max-width: 1400px;
+    margin: 0 auto;
+    /*row gap , column gap*/
+    gap: 16px;
+}
+.gallery::after{
+    content:"";
+    width:350px;
+}
