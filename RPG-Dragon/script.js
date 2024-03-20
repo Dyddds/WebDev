@@ -40,9 +40,30 @@ const locations = [
     "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
     "button functions": [fightSlime, fightBeast, goTown],
     text: "You enter the cave. You see some monsters."
-  }
+  },
+  {
+    name: "fight",
+   "button text": ["Attack","Dodge","Run"],
+   "button functions":[attack,dodge,goTown],
+    text: "You are fighting a monster"
+    }
 ];
-
+ const monsters = [
+    {
+        name:"slime",
+        level:2,
+        health:15
+    },
+    {
+        name:"fanged beast",
+        level:8,
+        health:60
+    },
+    {
+        name:"dragon",
+        level:20,
+        health:300}
+ ]
 // initialize buttons
 button1.onclick = goStore;
 button2.onclick = goCave;
@@ -70,9 +91,7 @@ function goCave() {
   update(locations[2])
 }
 
-function fightDragon() {
-  console.log("Fighting dragon.");
-}
+
 
 function buyHealth() {
  if(gold>=10){
@@ -101,14 +120,54 @@ function buyWeapon() {
         {
         text.innerText = "You do not have enough gold to buy a weapon.";
         }
+    } else {
+        text.innerText="You already have the most powerful weapon!";
+        button2.innerText="Sell weapon for 15 gold";
+        button2.onclick=sellWeapon;
     }
 
 }
+function sellWeapon(){
+    if (inventory.length>1){
+        gold += 15;
+        goldText.innerText = gold;
+        let currentWeapon = inventory.shift();
+        text.innerText = "You sold a "+currentWeapon + ".";
+        text.innerText += " In your inventory you have: "+inventory+".";
+
+    } else{
+        text.innerText = "Don't sell your only weapon!";
+    }
+}
 
 function fightSlime() {
+    fighting = 0;
+    goFight();
 
 }
 
 function fightBeast() {
+    fighting = 1;
+    goFight();
+
+}
+
+function fightDragon() {
+    fighting = 2;
+    goFight();
+}
+
+function goFight(){
+    update(locations[3]);
+    monsterHealth = monsters[fighting].health;
+    monsterStats.style.display = 'block';
+    monsterName.innerText = monsters[fighting].name;
+    monsterHealthText.innerText = monsterHealth;
+}
+
+function attack (){
+
+}
+function dodge(){
 
 }
