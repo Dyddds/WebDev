@@ -54,6 +54,8 @@ function addEntry(){
 }
 // When the button is used, the function will execute.
 addEntryButton.addEventListener("click",addEntry);
+calorieCounter.addEventListener("submit",calculateCalories);
+clearButton.addEventListener("click",clearForm);
 
 function getCaloriesFromInputs(list){
     let calories =0;
@@ -85,6 +87,37 @@ function calculateCalories(e){
     const snacksNumberInputs = document.querySelectorAll("#snacks input[type=number]");
     const exerciseNumberInputs = document.querySelectorAll("#exercise input[type=number]");
 
-    let breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+    const breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+    const lunchCalories = getCaloriesFromInputs(lunchNumberInputs);
+    const dinnerCalories = getCaloriesFromInputs(dinnerNumberInputs);
+    const snacksCalories = getCaloriesFromInputs(snacksCalories);
+    const exerciseCalories = getCaloriesFromInputs(exerciseNumberInputs);
+    // budget was an element we passed as an array here
+    const budgetCalories = getCaloriesFromInputs([budgetNumberInput]);
+    if (isError) {return;}
 
+    const consumedCalories = breakfastCalories +
+         lunchCalories + dinnerCalories + 
+         snacksCalories;
+    const remainingCalories = budgetCalories - consumedCalories + exerciseCalories;
+    const surplusOrDeficit = remainingCalories <0? "Surplus" : "Deficit";
+    // this is ${interpolation}
+    output.innerHTML = `<span class="${surplusOrDeficit.toLowerCase()}">${Math.abs(remainingCalories)} Calorie ${surplusOrDeficit}</span>
+        <hr>
+        <p>${budgetCalories} Calories Budgeted</p>
+        <p>${consumedCalories} Calories Consumed</p>
+        <p>${exerciseCalories} Calories Burned</p>
+        `;
+    output.classList.remove('hide');
+}
+function clearForm(){
+    // Array.from: arraylike @para ,returns Array.
+    const inputContainers = Array.from(document.querySelectorAll(".input-container"));
+    for (const container of inputContainers){
+        container.innerHTML = "";
+    }
+    budgetNumberInput.value = "";
+    // innerText: will not render html elements
+    output.innerText = "";
+    output.classList.add("hide");
 }
