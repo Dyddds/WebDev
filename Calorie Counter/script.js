@@ -28,6 +28,7 @@ function isInvalidInput(str){
     //case insensitive
     // \d any digit
     // + repeated 
+    // Only e values because the built in input accepts numbers only input type number >> line 48 
     return str.match(regex);
 }
 function addEntry(){
@@ -45,9 +46,45 @@ function addEntry(){
     <input type="text" placeholder ="name" id="${entryDropdown.value}-${entryNumber}-name"</input>
     <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} calories</label>
     <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories"</input>`;
-    // Appending it to the live document.
-    //targetInputContainer.innerHTML += HTMLString;
-    targetInputContainer.insertAdjacentHTML();
+    // Appending it to the live document first try:
+    // targetInputContainer.innerHTML += HTMLString;
+
+    // The string 'beforeend' specifies position. HTMLString is what will be added.
+    targetInputContainer.insertAdjacentHTML("beforeend",HTMLString);
 }
 // When the button is used, the function will execute.
 addEntryButton.addEventListener("click",addEntry);
+
+function getCaloriesFromInputs(list){
+    let calories =0;
+    //for var of iterable object.
+    for (const item of list){
+        const currVal = cleanInputString(item.value);
+        let invalidInputMatch = isInvalidInput(currVal);
+        // means not null as the return is an array
+        if (invalidInputMatch){
+            alert(`Invalid Input: ${invalidInputMatch[0]}`);
+            isError = true;
+            return null;
+        }
+        calories += Number(currVal);
+    }
+    return calories;
+}
+function calculateCalories(e){
+    // @para e is standard for event listner
+    e.preventDefault();
+    // will stop the page from reloading
+    // the plan is to use e for submit button
+    isError = false;
+
+    // query selector to get all number inputs added 
+    const breakfastNumberInputs = document.querySelectorAll("#breakfast input[type=number]");
+    const lunchNumberInputs = document.querySelectorAll("#lunch input[type=number]");
+    const dinnerNumberInputs = document.querySelectorAll("#dinner input[type=number]");
+    const snacksNumberInputs = document.querySelectorAll("#snacks input[type=number]");
+    const exerciseNumberInputs = document.querySelectorAll("#exercise input[type=number]");
+
+    let breakfastCalories = getCaloriesFromInputs(breakfastNumberInputs);
+
+}
