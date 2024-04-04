@@ -103,10 +103,28 @@ const playSong = (id) =>{
     playButton.classList.add("playing");
     audio.play();
 }
-const pauseSong () =>{
+const pauseSong = () =>{
     userData.songCurrentTime = audio.currentTime;
     playButton.classList.remove("playing");
     audio.pause();
+};
+const playNextSong = ()=> {
+    if (userData?.currentSong === null) 
+    {
+        playSong(userData?.songs[0].id);
+    }
+    else {
+        const currentSongIndex = getCurrentSongIndex();
+        const nextSong = userData?.songs[currentSongIndex+1];
+        playSong(nextSong.id);
+        }
+};
+const playPreviousSong = () =>{
+    if (userData?.currentSong === null){return;}
+    else {const currentSongIndex = getCurrentSongIndex();
+    const previousSong = userData?.songs[currentSongIndex];
+    playSong(previousSong.id);
+    }
 };
 const renderSongs = (array) => {
   const songsHTML = array
@@ -129,12 +147,18 @@ const renderSongs = (array) => {
 
   playlistSongs.innerHTML = songsHTML;
 };
+
+const getCurrentSongIndex = ()=> {
+    return userData?.songs.indexOf(userData?.currentSong);
+};
+
 playButton.addEventListener("click",()=>{
     if (!userData?.currentSong){playSong(userData?.songs[0].id);}
     else {playSong(userData?.currentSong.id);}
 });
 
 pauseButton.addEventListener("click",pauseSong);
+nextButton.addEventListener("click",playNextSong);
 // ?. returns null if inaccessible
 // sort accepts -1 from callback function puts a before b
 const sortSongs = () => {
