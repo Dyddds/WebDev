@@ -1,0 +1,22 @@
+*{
+    background-color: grey;
+    height: 50ex;
+    
+  }
+  div{
+  display:flex;
+  flex-direction: column;
+  
+  }
+  .checker{
+  background-color: #060270;
+  color: white;
+  }
+  p{
+    color: white;
+    background: #060270;
+    margin-bottom: 0px;
+  }
+  input{
+    color: green;
+  }
